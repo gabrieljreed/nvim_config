@@ -1,4 +1,5 @@
 -- Python specific settings
+
 vim.opt.cc = "120"
 vim.opt.foldlevel = 20
 vim.opt.foldmethod = "indent"
