@@ -21,5 +21,6 @@ return {
   config = function(_, opts)
     local configs = require("nvim-treesitter.configs")
     configs.setup(opts)
+    require ("nvim-treesitter.install").compilers = {"zig"}
   end
 }
