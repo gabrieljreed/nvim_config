@@ -114,6 +114,23 @@ return {
       return open_floating_preview(contents, syntax, opts, ...)
     end
 
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+      callback = function(event)
+        local map = function(keys, func, desc, mode)
+          mode = mode or "n"
+          vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+        end
+
+        -- Go to definition
+        map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinitions")
+
+        -- Go to references
+        map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+
+      end
+    })
+
   end
 }
 

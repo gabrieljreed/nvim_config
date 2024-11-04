@@ -13,7 +13,7 @@ keymap.set("n", "<leader>lg", require("telescope.builtin").live_grep, {})
 keymap.set("n", "<leader>ee", ":NERDTreeToggle<CR>", {})  -- Toggle Nerd Tree
 
 keymap.set("n", "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {})
-keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {})
+-- keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {})
 keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
 keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
 keymap.set("n", "<leader>rr", "<cmd>lua vim.lsp.buf.rename()<CR>", {})
