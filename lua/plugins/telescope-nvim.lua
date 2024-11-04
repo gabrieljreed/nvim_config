@@ -1,3 +1,4 @@
+-- Fuzzy file finder
 return {
     "nvim-telescope/telescope.nvim",
     lazy = true,

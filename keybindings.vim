@@ -3,6 +3,8 @@ let mapleader=" "
 
 nmap <leader>o o<Esc>
 nmap <leader>O O<Esc>
+nmap <leader>/ :noh<CR>
+nmap <leader><CR> i<CR><Esc>
 
 nmap <leader>r ^Da
 nmap <leader>d 0D
@@ -25,7 +27,6 @@ command Q qa!
 
 inoremap <D-c> <Esc>
 inoremap jj <Esc>
-vnoremap jj <Esc>
 
 " Back and forward
 nmap <leader>b <c-o>

@@ -20,6 +20,7 @@ let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
 set tabstop=4 " Number of spaces that a <Tab> in the file counts for
 set softtabstop=4 " Number of spaces that a <Tab> in the file counts for
 set expandtab " Converts tabs to spaces
+" set smartcase  " Use case-insensitive search on lowercase, otherwise use case-sensitive search
 
 set termguicolors
 " set cc=120
@@ -31,3 +32,5 @@ augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
+
+" let NERDTreeShowLineNumbers = 1
