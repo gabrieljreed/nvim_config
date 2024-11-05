@@ -22,5 +22,6 @@ return {
     local configs = require("nvim-treesitter.configs")
     configs.setup(opts)
     require ("nvim-treesitter.install").compilers = {"zig"}
+    -- Install scoop, then `scoop install zig` on Windows
   end
 }
