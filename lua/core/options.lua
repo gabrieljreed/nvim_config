@@ -32,3 +32,12 @@ vim.g.NERDTreeIgnore = {
   ".git",
 }
 
+vim.g.have_nerd_font = true
+
+-- Case-insensitive searching unless \C or capital letters in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Minimum lines to show above/below cursor
+vim.opt.scrolloff = 10
+
