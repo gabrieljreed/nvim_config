@@ -1,26 +1,20 @@
 -- LSP Support
 return {
   -- LSP Configuration
-  -- https://github.com/neovim/nvim-lspconfig
   'neovim/nvim-lspconfig',
   event = 'VeryLazy',
   dependencies = {
     -- LSP Management
-    -- https://github.com/williamboman/mason.nvim
     { 'williamboman/mason.nvim' },
-    -- https://github.com/williamboman/mason-lspconfig.nvim
     { 'williamboman/mason-lspconfig.nvim' },
 
     -- Auto-Install LSPs, linters, formatters, debuggers
-    -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
     { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
 
     -- Useful status updates for LSP
-    -- https://github.com/j-hui/fidget.nvim
     { 'j-hui/fidget.nvim', opts = {} },
 
     -- Additional lua configuration, makes nvim stuff amazing!
-    -- https://github.com/folke/neodev.nvim
     { 'folke/neodev.nvim', opts = {} },
   },
   config = function ()
@@ -128,8 +122,47 @@ return {
         -- Go to references
         map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 
+        -- Rename
+        map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+
+        -- Document symbols
+        map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+
+        -- Workspace symbols
+        map("<leader>ws", require("telescope.builtin").lsp_workspace_symbols, "[W]orkspace [S]ymbols")
+
+        -- Show hover
+        map("<leader>gh", vim.lsp.buf.hover, "[G]o [H]over")
       end
     })
+
+    -- Show diagnostics in a floating window
+    vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = false,
+      signs = true,
+      update_in_insert = true,
+      underline = true,
+    })
+    vim.keymap.set("n", "<leader>ge", vim.diagnostic.open_float, { desc = "[G]o [E]rror" })
+
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "",
+      }
+    },
+    })
+
+    -- LSP servers and clients are able to communicate to each other what features they support.
+    -- By default, Neovim doesn't support everything that is in the LSP specification.
+    -- When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
+    -- So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
   end
 }

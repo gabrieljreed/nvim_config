@@ -27,10 +27,13 @@ return {
     pcall(require("telescope").load_extension, "ui-select")
 
     local builtin = require "telescope.builtin"
-    vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "[S]earch Recent Files ('.' for repeat)" })
-    vim.keymap.set("n", "<leader>fs", builtin.builtin, { desc = "Find Telescope" })
-    vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
-    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Find Help" })
+    vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "[F]ind [F]iles (git)" })
+    vim.keymap.set("n", "<leader>FF", builtin.find_files, { desc = "[F]ind [F]iles (all)" })
+    vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "[L]ive [G]rep" })
+    vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "[F]ind [R]ecent files ('.' for repeat)" })
+    vim.keymap.set("n", "<leader>ft", builtin.builtin, { desc = "[F]ind [T]elescope" })
+    vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>fb', function()
@@ -39,7 +42,7 @@ return {
         winblend = 10,
         previewer = false,
       })
-    end, { desc = '[/] Fuzzily search in current buffer' })
+    end, { desc = '[F]ind in [B]uffer' })
 
   -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>fc', function()
