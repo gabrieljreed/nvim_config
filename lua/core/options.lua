@@ -41,3 +41,6 @@ vim.opt.smartcase = true
 -- Minimum lines to show above/below cursor
 vim.opt.scrolloff = 10
 
+-- Disable swapfiles
+vim.opt.swapfile = false
+
