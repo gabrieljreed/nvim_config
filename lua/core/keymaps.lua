@@ -6,10 +6,11 @@ keymap.set("n", "<leader>tt", ":tabnew<CR>", { desc = "New tab" })
 keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
 keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Close other tabs ([t]ab[o]nly)" })
 
--- Toggle Nerd Tree
+-- Nerd Tree
 keymap.set("n", "<leader>ee", ":NERDTreeToggle<CR>", { desc = "Toggle NERD Tree" })
+keymap.set("n", "<leader>rf", ":NERDTreeFind<CR>", { desc = "[R]eveal [F]ile in NERD Tree" })
 
--- Toggle Git Blame
+-- Git Blame
 vim.keymap.set("n", "<leader>gbt", ":GitBlameToggle<CR>", { desc = "[G]it [B]lame [T]oggle" } )
 vim.keymap.set("n", "<leader>gbo", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]lame [O]pen URL" } )
 vim.keymap.set("n", "<leader>gby", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]lame [Y]ank SHA" } )
