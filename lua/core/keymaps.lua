@@ -18,3 +18,10 @@ vim.keymap.set("n", "<leader>gby", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]la
 keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
 keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
 
+keymap.set("n", "<C-\\>", ":ToggleTerm<CR>")
+function _G.set_terminal_keymaps()
+  local opts = {buffer = 0}
+  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+end
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
