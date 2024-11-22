@@ -11,9 +11,9 @@ nmap <leader>d 0D
 nmap <leader>p "0p
 nmap <leader>P "*p
 nnoremap <leader>J J
-nnoremap <leader>y "*y
-nnoremap <leader>yy "*yy
-vnoremap <leader>y "*y
+nnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+vnoremap <leader>y "+y
 
 nnoremap gl $
 nnoremap gh ^
