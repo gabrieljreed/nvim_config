@@ -18,10 +18,18 @@ vim.keymap.set("n", "<leader>gby", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]la
 keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
 keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
 
+-- Toggle term
 keymap.set("n", "<C-\\>", ":ToggleTerm<CR>")
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
   vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
 end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
