@@ -41,7 +41,7 @@ vim.api.nvim_create_user_command("ClearShada", function ()
     local all_success = 0
     for _, file in ipairs(files) do
       local file_name = vim.fn.fnamemodify(file, ":t")
-      if file_name == "main.shada" then 
+      if file_name == "main.shada" then
         -- Skip main shada file
         goto continue
       end
@@ -59,4 +59,7 @@ vim.api.nvim_create_user_command("ClearShada", function ()
   { desc = "Clear all .tmp shada files" }
 )
 vim.keymap.set("n", "<leader>cs", ":ClearShada<CR>", { desc = "Clear all .tmp shada files" })
+
+-- Copy current file path
+vim.keymap.set("n", "<leader>cp", ":let @+=expand('%:p')<CR>", { desc = "Copy current file path" })
 
