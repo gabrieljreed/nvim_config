@@ -22,7 +22,7 @@ keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
 keymap.set("n", "<C-\\>", ":ToggleTerm<CR>")
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
-  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "<C-q>", [[<C-\><C-n>]], opts)
   vim.keymap.set("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]], opts)
 end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
