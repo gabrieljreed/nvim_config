@@ -6,11 +6,11 @@ nmap <leader>O O<Esc>
 nmap <leader>/ :noh<CR>
 nmap <leader><CR> i<CR><Esc>
 
-nmap <leader>r ^Da
 nmap <leader>d 0D
+nnoremap <leader>J J
+
 nmap <leader>p "0p
 nmap <leader>P "*p
-nnoremap <leader>J J
 nnoremap <leader>y "+y
 nnoremap <leader>yy "+yy
 vnoremap <leader>y "+y
