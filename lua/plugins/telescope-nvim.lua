@@ -21,6 +21,14 @@ return {
           require("telescope.themes").get_dropdown(),
         },
       },
+      defaults = {
+        mappings = {
+          i = {
+            ["<C-j>"] = require("telescope.actions").move_selection_next,
+            ["<C-k>"] = require("telescope.actions").move_selection_previous,
+          },
+        },
+      }
     }
 
     pcall(require("telescope").load_extension, "fzf")
@@ -51,18 +59,4 @@ return {
     end, { desc = '[F]ind in [C]onfig files' })
 
   end
-  -- opts = {
-  --   defaults = {
-  --     layout_config = {
-  --       vertical = {
-  --         width = 0.75
-  --       }
-  --     },
-  --     path_display = {
-  --       filename_first = {
-  --         reverse_directories = true
-  --       }
-  --     },
-  --   }
-  -- }
 }
