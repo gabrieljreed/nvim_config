@@ -21,9 +21,10 @@ keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
 -- Toggle term
 keymap.set("n", "<C-\\>", ":ToggleTerm<CR>")
 function _G.set_terminal_keymaps()
-  local opts = {buffer = 0}
-  -- vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-  vim.keymap.set("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]], opts)
+  local opts = { buffer = 0 }
+  vim.keymap.set("t", "<C-q>", [[<C-\><C-n>]], opts) -- Exit terminal mode
+  vim.keymap.set("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]], opts)  -- Close terminal
+  vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>p]], opts)  -- Move to previous window/pane
 end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
@@ -59,8 +60,8 @@ vim.api.nvim_create_user_command("ClearShada", function ()
   end,
   { desc = "Clear all .tmp shada files" }
 )
-vim.keymap.set("n", "<leader>cs", ":ClearShada<CR>", { desc = "Clear all .tmp shada files" })
+vim.keymap.set("n", "<leader>cs", ":ClearShada<CR>", { desc = "[C]lear all .tmp [S]hada files" })
 
 -- Copy current file path
-vim.keymap.set("n", "<leader>cp", ":let @+=expand('%:p')<CR>", { desc = "Copy current file path" })
+vim.keymap.set("n", "<leader>cf", ":let @+=expand('%:p')<CR>", { desc = "[C]opy current [F]ile path" })
 
