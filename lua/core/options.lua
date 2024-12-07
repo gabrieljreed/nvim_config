@@ -11,7 +11,7 @@ vim.bo.softtabstop = 4
 opt.scrolloff=1
 opt.fillchars={eob = ' '}
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "tokyonight"
 
 -- opt.foldlevel = 20
 -- opt.foldmethod = "expr"
