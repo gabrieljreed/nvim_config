@@ -6,9 +6,10 @@ keymap.set("n", "<leader>tt", ":tabnew<CR>", { desc = "New tab" })
 keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
 keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Close other tabs ([t]ab[o]nly)" })
 
--- Nerd Tree
-keymap.set("n", "<leader>ee", ":NERDTreeToggle<CR>", { desc = "Toggle NERD Tree" })
-keymap.set("n", "<leader>rf", ":NERDTreeFind<CR>", { desc = "[R]eveal [F]ile in NERD Tree" })
+-- Nvim Tree
+keymap.set("n", "<leader>ee", ":NvimTreeFocus<CR>", { desc = "Open/Focus NvimTree" })
+keymap.set("n", "<leader>rf", ":NvimTreeFindFile<CR>", { desc = "[R]eveal [F]ile in NERD Tree" })
+keymap.set("n", "<leader>eq", ":NvimTreeClose<CR>", { desc = "Close NvimTree" })
 
 -- Git Blame
 vim.keymap.set("n", "<leader>gbt", ":GitBlameToggle<CR>", { desc = "[G]it [B]lame [T]oggle" } )

@@ -14,7 +14,7 @@ if not vim.loop.fs_stat(lazy_path) then
         lazy_path,
     })
 end
-vim.opt.rtp:prepend(lazy_path)
+vim.opt.runtimepath:prepend(lazy_path)
 
 -- Need to set this here for it to work properly
 vim.g.mapleader = " "

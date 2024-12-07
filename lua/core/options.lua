@@ -8,14 +8,10 @@ opt.expandtab = true    -- Use spaces instead of tabs
 opt.smartindent = true  -- Auto indent new lines
 opt.autoindent = true
 vim.bo.softtabstop = 4
-opt.scrolloff=1
 opt.fillchars={eob = ' '}
 
 vim.cmd.colorscheme "tokyonight"
 
--- opt.foldlevel = 20
--- opt.foldmethod = "expr"
--- opt.foldexpr = "nvim_treesitter#foldexpr()" -- Use treesitter folds
 opt.foldcolumn="2"
 
 -- NERDTree show and use relative line numbers
@@ -43,4 +39,11 @@ vim.opt.scrolloff = 10
 
 -- Disable swapfiles
 vim.opt.swapfile = false
+
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- Enable 24-bit color
+vim.opt.termguicolors = true
 
