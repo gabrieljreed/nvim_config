@@ -21,7 +21,7 @@ return {
   config = function(_, opts)
     local configs = require("nvim-treesitter.configs")
     configs.setup(opts)
-    require ("nvim-treesitter.install").compilers = {"zig"}
+    require ("nvim-treesitter.install").compilers = {"zig", "gcc"}
     -- Install scoop, then `scoop install zig` on Windows
   end
 }
