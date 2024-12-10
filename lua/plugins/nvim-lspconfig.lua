@@ -75,6 +75,10 @@ return {
             -- Get the language server to recognize the `vim` global
             globals = {'vim'},
           },
+          --  Disable weird popup on Mac
+          workspace = {
+            checkThirdParty = false,
+          },
         },
       },
     }
