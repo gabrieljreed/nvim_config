@@ -10,7 +10,7 @@ opt.autoindent = true
 vim.bo.softtabstop = 4
 opt.fillchars={eob = ' '}
 
-vim.cmd.colorscheme "tokyonight"
+vim.cmd.colorscheme "tokyonight-night"
 
 opt.foldcolumn="2"
 
