@@ -26,7 +26,6 @@ vnoremap gH 0
 command Q qa!
 
 inoremap <D-c> <Esc>
-inoremap jj <Esc>
 
 " Back and forward
 nmap <leader>b <c-o>
