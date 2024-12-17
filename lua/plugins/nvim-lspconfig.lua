@@ -130,7 +130,7 @@ return {
         map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 
         -- Document symbols
-        map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+        -- map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 
         -- Workspace symbols
         map("<leader>ws", require("telescope.builtin").lsp_workspace_symbols, "[W]orkspace [S]ymbols")

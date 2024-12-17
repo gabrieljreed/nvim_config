@@ -57,6 +57,14 @@ return {
       })
     end, { desc = '[F]ind in [B]uffer' })
 
+    vim.keymap.set('n', '<leader>ds', function()
+      -- You can pass additional configuration to Telescope to change the theme, layout, etc.
+      builtin.lsp_document_symbols(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = true,
+      })
+    end, { desc = '[F]ind in [B]uffer' })
+
   -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>fc', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
