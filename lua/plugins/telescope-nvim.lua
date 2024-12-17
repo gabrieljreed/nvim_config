@@ -5,6 +5,7 @@ return {
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     {
+      -- Makes telescope search faster
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
       cond = function()
@@ -17,6 +18,7 @@ return {
   config = function ()
     require("telescope").setup {
       extensions = {
+        fzf = {},
         ["ui-select"] = {
           require("telescope.themes").get_dropdown(),
         },
@@ -34,7 +36,7 @@ return {
     pcall(require("telescope").load_extension, "fzf")
     pcall(require("telescope").load_extension, "ui-select")
 
-    local builtin = require "telescope.builtin"
+    local builtin = require("telescope.builtin")
     vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "[F]ind [F]iles (git)" })
     vim.keymap.set("n", "<leader>FF", builtin.find_files, { desc = "[F]ind [F]iles (all)" })
     vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "[L]ive [G]rep" })
@@ -43,6 +45,8 @@ return {
     vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
     vim.keymap.set("n", "<leader>fo", builtin.buffers, { desc = "[F]ind in [O]pen buffers" })
+
+    require("config.telescope.multigrep").setup()
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>fb', function()
