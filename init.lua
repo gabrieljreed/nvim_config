@@ -1,5 +1,4 @@
 local config_path = vim.fn.stdpath("config")
-vim.cmd("source " .. config_path .. "/keybindings.vim")
 vim.cmd("source " .. config_path .. "/settings.vim")
 
 -- Bootstrap lazy
