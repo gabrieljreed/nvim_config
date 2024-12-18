@@ -1,26 +1,55 @@
 vim.g.mapleader = " "
 
-local keymap = vim.keymap
+-- Movement
+vim.keymap.set({"n", "v"}, "gl", "$", { desc = "Move to end of line" })
+vim.keymap.set({"n", "v"}, "gh", "^", { desc = "Move to start of line with text" })
+vim.keymap.set({"n", "v"}, "gH", "0", { desc = "Move to true start of line" })
 
-keymap.set("n", "<leader>tt", ":tabnew<CR>", { desc = "New tab" })
-keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
-keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Close other tabs ([t]ab[o]nly)" })
+-- Tabs
+vim.keymap.set("n", "<leader>tt", ":tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
+vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Close other tabs ([t]ab[o]nly)" })
+
+-- Yanking
+vim.keymap.set("n", "ygl", "y$", { desc = "Yank to end of line" })
+vim.keymap.set("n", "<leader>y", '"+y', { desc = "Yank to clipboard" })
+vim.keymap.set("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
+vim.keymap.set("n", "<leader>p", '"0p', { desc = "Paste from yank register" })
+vim.keymap.set("n", "<leader>P", '"+P', { desc = "Paste from clipboard" })
+vim.keymap.set("n", "<leader>cf", ":let @+=expand('%:p')<CR>", { desc = "[C]opy current [F]ile path" })
+
+-- Misc
+vim.keymap.set("n", "<leader>o", "o<Esc>", { desc = "Open new line below" })
+vim.keymap.set("n", "<leader>O", "O<Esc>", { desc = "Open new line above" })
+vim.keymap.set("n", "<leader>d", "0D", { desc = "Delete contents of line" })
+vim.keymap.set("n", "<leader>/", ":nohlsearch<CR>", { desc = "Clear search highlights" })
+vim.keymap.set("n", "<leader><CR>", "i<CR><ESC>", { desc = "Insert newline" })
+vim.keymap.set("n", "<leader>b", "<C-o>", { desc = "Go back" })
+vim.keymap.set("n", "<leader>n", "<C-i>", { desc = "Go next/forward" })
+vim.keymap.set("n", "n", "nzzzv", { desc = "Move to next search result" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Move to previous search result" })
+vim.keymap.set("c", "Q", "qa!", { desc = "Quit all" })
+
+-- Quickfix
+vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>", { desc = "Qui[C]kfix [N]ext" })
+vim.keymap.set("n", "<leader>cb", "<cmd>cnext<CR>", { desc = "Qui[C]kfix [B]ack" })
 
 -- Nvim Tree
-keymap.set("n", "<leader>ee", ":NvimTreeFocus<CR>", { desc = "Open/Focus NvimTree" })
-keymap.set("n", "<leader>rf", ":NvimTreeFindFile<CR>", { desc = "[R]eveal [F]ile in NERD Tree" })
-keymap.set("n", "<leader>eq", ":NvimTreeClose<CR>", { desc = "Close NvimTree" })
+vim.keymap.set("n", "<leader>ee", ":NvimTreeFocus<CR>", { desc = "Open/Focus NvimTree" })
+vim.keymap.set("n", "<leader>rf", ":NvimTreeFindFile<CR>", { desc = "[R]eveal [F]ile in NERD Tree" })
+vim.keymap.set("n", "<leader>eq", ":NvimTreeClose<CR>", { desc = "Close NvimTree" })
 
 -- Git Blame
 vim.keymap.set("n", "<leader>gbt", ":GitBlameToggle<CR>", { desc = "[G]it [B]lame [T]oggle" } )
 vim.keymap.set("n", "<leader>gbo", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]lame [O]pen URL" } )
 vim.keymap.set("n", "<leader>gby", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]lame [Y]ank SHA" } )
 
-keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
-keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
+vim.keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
+vim.keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
 
 -- Toggle term
-keymap.set("n", "<C-\\>", ":ToggleTerm<CR>")
+vim.keymap.set("n", "<C-\\>", ":ToggleTerm<CR>")
 function _G.set_terminal_keymaps()
   local opts = { buffer = 0 }
   vim.keymap.set("t", "<C-q>", [[<C-\><C-n>]], opts) -- Exit terminal mode
@@ -62,9 +91,6 @@ vim.api.nvim_create_user_command("ClearShada", function ()
   { desc = "Clear all .tmp shada files" }
 )
 vim.keymap.set("n", "<leader>cs", ":ClearShada<CR>", { desc = "[C]lear all .tmp [S]hada files" })
-
--- Copy current file path
-vim.keymap.set("n", "<leader>cf", ":let @+=expand('%:p')<CR>", { desc = "[C]opy current [F]ile path" })
 
 -- Toggle Copilot
 vim.keymap.set("n", "<leader>gcd", ":Copilot disable<CR>", { desc = "[G]itHub [C]opilot [D]isable" })

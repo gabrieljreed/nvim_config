@@ -39,3 +39,4 @@ let &shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait'
 let &shellpipe  = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 set shellquote= shellxquote=
 
+let g:qs_highlight_on_keys = ["f", "F", "t", "T"]
