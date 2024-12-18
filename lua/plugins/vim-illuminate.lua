@@ -1,6 +1,7 @@
 -- Highlight words under cursor
 return {
   "RRethy/vim-illuminate",
+  event = "VimEnter",
   config = function ()
     require("illuminate").configure({
       providers = {

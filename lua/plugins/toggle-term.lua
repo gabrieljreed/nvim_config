@@ -1,5 +1,6 @@
 return {
   "akinsho/toggleterm.nvim",
+  event = "VimEnter",
   version = "*",
   config = function ()
     require("toggleterm").setup{

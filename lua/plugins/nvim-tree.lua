@@ -1,7 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
-  lazy = false,
+  lazy = false,  -- Lazy loading isn't recommended by the docs - https://github.com/nvim-tree/nvim-tree.lua/wiki/Installation
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "b0o/nvim-tree-preview.lua",
