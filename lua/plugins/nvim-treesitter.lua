@@ -16,6 +16,10 @@ return {
     auto_install = true,  -- Auto install syntax support when entering new file type buffer
     ensure_installed = {
       "lua",
+      "markdown",
+      "markdown_inline",
+      "vim",
+      "vimdoc",
     },
   },
   config = function(_, opts)
