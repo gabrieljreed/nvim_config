@@ -41,9 +41,10 @@ vim.keymap.set("n", "<leader>rf", ":NvimTreeFindFile<CR>", { desc = "[R]eveal [F
 vim.keymap.set("n", "<leader>eq", ":NvimTreeClose<CR>", { desc = "Close NvimTree" })
 
 -- Git Blame
-vim.keymap.set("n", "<leader>gbt", ":GitBlameToggle<CR>", { desc = "[G]it [B]lame [T]oggle" } )
-vim.keymap.set("n", "<leader>gbo", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]lame [O]pen URL" } )
-vim.keymap.set("n", "<leader>gby", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]lame [Y]ank SHA" } )
+vim.keymap.set("n", "<leader>gbt", ":BlamerToggle<CR>", { desc = "[G]it [B]lame [T]oggle" } )
+-- vim.keymap.set("n", "<leader>gbt", ":GitBlameToggle<CR>", { desc = "[G]it [B]lame [T]oggle" } )
+-- vim.keymap.set("n", "<leader>gbo", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]lame [O]pen URL" } )
+-- vim.keymap.set("n", "<leader>gby", ":GitBlameCopySHA<CR>", { desc = "[G]it [B]lame [Y]ank SHA" } )
 
 vim.keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
 vim.keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
