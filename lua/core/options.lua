@@ -9,6 +9,7 @@ opt.smartindent = true  -- Auto indent new lines
 opt.autoindent = true
 vim.bo.softtabstop = 4
 opt.fillchars={eob = ' '}
+opt.cursorline = true
 
 vim.cmd.colorscheme "tokyonight-night"
 
