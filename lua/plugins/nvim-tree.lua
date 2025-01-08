@@ -32,9 +32,17 @@ return {
         vim.keymap.set("n", "<Esc>", preview.unwatch, opts "Close Preview/Unwatch")
         vim.keymap.set("n", "<C-f>", function() return preview.scroll(4) end, opts "Scroll Down")
         vim.keymap.set("n", "<C-b>", function() return preview.scroll(-4) end, opts "Scroll Up")
+        vim.keymap.set("n", "?", api.tree.toggle_help, opts("Show help"))
+
+        vim.keymap.set("n", "<C-q>", function ()
+         local ok, node = pcall(api.tree.get_node_under_cursor)
+          if ok and node then
+            api.node.open.vertical()
+          end
+        end, opts "Open in split")
 
         vim.keymap.set("n", "<Tab>", function ()
-         local ok, node = pcall(api.tree.get_node_under_cursor) 
+         local ok, node = pcall(api.tree.get_node_under_cursor)
           if ok and node then
             if node.type == "directory" then
               api.node.open.edit()
