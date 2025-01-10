@@ -97,3 +97,6 @@ vim.keymap.set("n", "<leader>cs", ":ClearShada<CR>", { desc = "[C]lear all .tmp 
 vim.keymap.set("n", "<leader>gcd", ":Copilot disable<CR>", { desc = "[G]itHub [C]opilot [D]isable" })
 vim.keymap.set("n", "<leader>gce", ":Copilot enable<CR>", { desc = "[G]itHub [C]opilot [E]nable" })
 
+-- Tabby
+vim.keymap.set("n", "<leader>rt", ":Tabby rename_tab ", { desc = "[R]ename [T]ab"})
+
