@@ -30,6 +30,18 @@ return {
             ["<C-k>"] = require("telescope.actions").move_selection_previous,
           },
         },
+      },
+      pickers = {
+        buffers = {
+          show_all_buffers = true,
+          sort_lastused = true,
+          previewer = true,
+          mappings = {
+            i = {
+              ["<c-d>"] = "delete_buffer",
+            }
+          }
+        }
       }
     }
 
