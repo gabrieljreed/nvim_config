@@ -29,7 +29,8 @@ vim.keymap.set("n", "<leader>b", "<C-o>", { desc = "Go back" })
 vim.keymap.set("n", "<leader>n", "<C-i>", { desc = "Go next/forward" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Move to next search result" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Move to previous search result" })
-vim.keymap.set("c", "Q", "qa!", { desc = "Quit all" })
+vim.cmd("command Q qa!")
+vim.cmd("command W w")
 
 -- Quickfix
 vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>", { desc = "Qui[C]kfix [N]ext" })
