@@ -6,7 +6,7 @@ vim.keymap.set({"n", "v"}, "gh", "^", { desc = "Move to start of line with text"
 vim.keymap.set({"n", "v"}, "gH", "0", { desc = "Move to true start of line" })
 
 -- Tabs
-vim.keymap.set("n", "<leader>tt", ":tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>tt", ":tabnew<CR>:Tabby rename_tab new_tab<CR>", { desc = "New tab" })
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
 vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Close other tabs ([t]ab[o]nly)" })
 
