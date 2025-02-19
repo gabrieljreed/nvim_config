@@ -30,7 +30,7 @@ return {
         'quick_lint_js',
         'yamlls',
         'pyright@1.1.351',  -- Need this version to work on Laika Rocky9 Machines with old version of node
-        "tsserver",
+        "ts_ls",
       }
     })
 
