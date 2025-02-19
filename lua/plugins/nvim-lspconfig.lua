@@ -22,16 +22,15 @@ return {
     require('mason-lspconfig').setup({
       -- Install these LSPs automatically
       ensure_installed = {
-        -- 'bashls',
-        -- 'cssls',
-        -- 'html',
+        'cssls',
+        'html',
         'lua_ls',
-        -- 'jsonls',
-        -- 'lemminx',
-        -- 'marksman',
-        -- 'quick_lint_js',
-        -- 'yamlls',
+        'jsonls',
+        'marksman',
+        'quick_lint_js',
+        'yamlls',
         'pyright@1.1.351',  -- Need this version to work on Laika Rocky9 Machines with old version of node
+        "tsserver",
       }
     })
 

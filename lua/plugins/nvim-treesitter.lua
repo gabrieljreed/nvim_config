@@ -20,6 +20,13 @@ return {
       "markdown_inline",
       "vim",
       "vimdoc",
+      "luadoc",
+      "query",
+      "javascript",
+      "typescript",
+      "tsx",
+      "json",
+      "yaml",
     },
   },
   config = function(_, opts)
