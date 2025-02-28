@@ -1,4 +1,12 @@
 -- LSP Support
+local os_name = vim.loop.os_uname().sysname
+
+if os_name == "Windows_NT" then
+  pyright = "pyright"
+else
+  pyright = "pyright@1.1.351"  -- Need this version to work on Laika Rocky9 Machines with old version of node
+end
+
 return {
   -- LSP Configuration
   'neovim/nvim-lspconfig',
@@ -29,7 +37,7 @@ return {
         'marksman',
         'quick_lint_js',
         'yamlls',
-        'pyright@1.1.351',  -- Need this version to work on Laika Rocky9 Machines with old version of node
+        pyright,
         "ts_ls",
       }
     })
