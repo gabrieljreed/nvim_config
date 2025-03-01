@@ -1,8 +1,17 @@
 snippet printvar Print Variable
   print(f"{${1:var} = }")
 
+snippet printlist Print List
+  print(f"({len(${1:list}):04d}) ${1:list}")
+  for obj in ${1:list}:
+      print(obj)
+  print("---")
+
 snippet tryfinally Try Finally
   try:
-      ${1}
+      ${1:...}
   finally:
       ...
+
+snippet pdbpytest PDB Pytest
+  import pytest; pytest.set_trace()
