@@ -38,7 +38,7 @@ return {
         'quick_lint_js',
         'yamlls',
         pyright,
-        "ts_ls",
+        "ts_ls",  -- Need to install typescript and typescript-language-server with npm: `npm install -g typescript typescript-language-server`
       }
     })
 
