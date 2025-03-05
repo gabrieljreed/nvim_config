@@ -42,12 +42,13 @@ return {
         --   behavior = cmp.ConfirmBehavior.Replace,
         --   select = true,
         -- },
-        ['<CR>'] = cmp.mapping(function(fallback)
+        ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             if luasnip.expandable() then
               luasnip.expand()
             else
               cmp.confirm({
+                behavior = cmp.ConfirmBehavior.Insert,
                 select = true,
               })
             end
@@ -55,10 +56,10 @@ return {
             fallback()
           end
         end),
-        ['<Tab>'] = cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        },
+        -- ['<Tab>'] = cmp.mapping.confirm {
+        --   behavior = cmp.ConfirmBehavior.Insert,
+        --   select = true,
+        -- },
 	-- -- Tab through suggestions or when a snippet is active, tab to the next argument
         -- ['<Tab>'] = cmp.mapping(function(fallback)
           -- if cmp.visible() then
