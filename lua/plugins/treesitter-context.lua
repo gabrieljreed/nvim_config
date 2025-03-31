@@ -10,6 +10,6 @@ return {
         trim_scope = "outer",
         separator = nil,
         zindex = 20,
-        mode = "topline",  -- line used to calculate context, can set to "cursor" or "topline"
+        mode = "cursor",  -- line used to calculate context, can set to "cursor" or "topline"
     }
 }
