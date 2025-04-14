@@ -32,6 +32,7 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Move to previous search result" })
 vim.cmd("command Q qa!")
 vim.cmd("command W w")
 vim.keymap.set("n", "<leader>af", ":set foldmethod=expr<CR>", { desc = "Re[A]ctivate [F]olds (set fold method to expression)" })
+vim.keymap.set("n", "<leader>bd", ":bd!<CR>", { desc = "[B]uffer [D]elete" })
 
 -- Quickfix
 vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>", { desc = "Qui[C]kfix [N]ext" })
