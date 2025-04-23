@@ -22,10 +22,10 @@ vim.keymap.set("n", "<leader>cf", ":let @+=expand('%:p')<CR>", { desc = "[C]opy 
 -- Misc
 vim.keymap.set("n", "<leader>o", "o<Esc>", { desc = "Open new line below" })
 vim.keymap.set("n", "<leader>O", "O<Esc>", { desc = "Open new line above" })
-vim.keymap.set("n", "<leader>d", "0D", { desc = "Delete contents of line" })
+vim.keymap.set("n", "<leader>dd", "0D", { desc = "Delete contents of line" })
 vim.keymap.set("n", "<leader>/", ":nohlsearch<CR>", { desc = "Clear search highlights" })
 vim.keymap.set("n", "<leader><CR>", "i<CR><ESC>", { desc = "Insert newline" })
-vim.keymap.set("n", "<leader>b", "<C-o>", { desc = "Go back" })
+vim.keymap.set("n", "<leader>bb", "<C-o>", { desc = "Go back" })
 vim.keymap.set("n", "<leader>n", "<C-i>", { desc = "Go next/forward" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Move to next search result" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Move to previous search result" })
