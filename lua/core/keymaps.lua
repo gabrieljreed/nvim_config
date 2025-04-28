@@ -33,6 +33,8 @@ vim.cmd("command Q qa!")
 vim.cmd("command W w")
 vim.keymap.set("n", "<leader>af", ":set foldmethod=expr<CR>", { desc = "Re[A]ctivate [F]olds (set fold method to expression)" })
 vim.keymap.set("n", "<leader>bd", ":bd!<CR>", { desc = "[B]uffer [D]elete" })
+vim.keymap.set("n", "<leader>gn", ":Gitsigns next_hunk<CR>", { desc = "[G]it [N]ext hunk" })
+vim.keymap.set("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", { desc = "[Git]it [P]revious hunk" })
 
 -- Quickfix
 vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>", { desc = "Qui[C]kfix [N]ext" })
