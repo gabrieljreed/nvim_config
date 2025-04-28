@@ -3,6 +3,7 @@ return {
   "lewis6991/gitsigns.nvim",
   event = "VeryLazy",
   opts = {
-      auto_attach = true,
+    auto_attach = true,
+    word_diff = true,
   }
 }
