@@ -4,6 +4,5 @@ return {
   event = "VeryLazy",
   opts = {
     auto_attach = true,
-    word_diff = true,
   }
 }
