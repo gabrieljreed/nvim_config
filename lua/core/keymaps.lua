@@ -19,6 +19,10 @@ vim.keymap.set("n", "<leader>p", '"0p', { desc = "Paste from yank register" })
 vim.keymap.set("n", "<leader>P", '"+P', { desc = "Paste from clipboard" })
 vim.keymap.set("n", "<leader>cf", ":let @+=expand('%:p')<CR>", { desc = "[C]opy current [F]ile path" })
 
+-- Swap ; and :
+vim.keymap.set("n", ";", ":")
+vim.keymap.set("n", ":", ";")
+
 -- Misc
 vim.keymap.set("n", "<leader>o", "o<Esc>", { desc = "Open new line below" })
 vim.keymap.set("n", "<leader>O", "O<Esc>", { desc = "Open new line above" })
