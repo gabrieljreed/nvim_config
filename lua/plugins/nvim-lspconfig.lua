@@ -13,8 +13,9 @@ return {
   event = 'VeryLazy',
   dependencies = {
     -- LSP Management
-    { 'williamboman/mason.nvim' },
-    { 'williamboman/mason-lspconfig.nvim' },
+    -- We're pinning before 2.0 because it caused a bunch of problems
+    { 'williamboman/mason.nvim', version="^1.0.0" },
+    { 'williamboman/mason-lspconfig.nvim', version="^1.0.0" },
 
     -- Auto-Install LSPs, linters, formatters, debuggers
     { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
