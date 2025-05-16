@@ -21,7 +21,7 @@ vim.g.mapleader = " "
 require("lazy").setup("plugins", {
     change_detection = {
         enabled = true,  -- automatically check for plugin updates
-        notify = false,  -- don't notify when plugins are updated
+        notify = true,  -- notify when plugins are updated
     }
 })
 
