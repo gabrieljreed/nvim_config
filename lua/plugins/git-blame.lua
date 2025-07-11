@@ -6,4 +6,5 @@ return {
   "f-person/git-blame.nvim",
   event = "VeryLazy",
   cond = os_name ~= "Windows_NT",
+  enabled = false,
 }
