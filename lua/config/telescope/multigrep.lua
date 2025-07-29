@@ -47,7 +47,7 @@ local live_multigrep = function (opts)
     previewer = conf.grep_previewer(opts), -- Use normal previewer
     sorter = require("telescope.sorters").empty(), -- Don't sort, entries are already sorted from ripgrep
   }):find()
-  
+
 end
 
 M.setup = function()
