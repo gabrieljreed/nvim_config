@@ -12,11 +12,11 @@ vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Close other tabs ([t
 
 -- Yanking
 vim.keymap.set("n", "ygl", "y$", { desc = "Yank to end of line" })
-vim.keymap.set("n", "<leader>y", '"+y', { desc = "Yank to clipboard" })
-vim.keymap.set("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
-vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
+vim.keymap.set("n", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<leader>yy", '"+yy', { desc = "Yank line to system clipboard" })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>p", '"0p', { desc = "Paste from yank register" })
-vim.keymap.set("n", "<leader>P", '"+P', { desc = "Paste from clipboard" })
+vim.keymap.set("n", "<leader>P", '"+P', { desc = "Paste from system clipboard" })
 vim.keymap.set("n", "<leader>cf", ":let @+=expand('%:p')<CR>", { desc = "[C]opy current [F]ile path" })
 
 -- Swap ; and :

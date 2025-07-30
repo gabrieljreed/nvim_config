@@ -2,4 +2,3 @@
 return {
   "itchyny/vim-qfedit",
 }
-
