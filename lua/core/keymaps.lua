@@ -113,4 +113,4 @@ vim.keymap.set("n", "<leader>rt", ":Tabby rename_tab ", { desc = "[R]ename [T]ab
 vim.keymap.set("n", "<leader>jt", ":Tabby jump_to_tab<CR>", { desc = "[J]ump to [T]ab" })
 
 -- Vim Doge
-vim.keymap.set("n", "<leader>dg", ":DogeGenerate google<CR>", { desc = "[D]ocumentation [G]enerate" })
+vim.keymap.set("n", "<leader>dg", ":Neogen<CR>", { desc = "[D]ocumentation [G]enerate" })
