@@ -110,7 +110,7 @@ vim.keymap.set("n", "<leader>gce", ":Copilot enable<CR>", { desc = "[G]itHub [C]
 
 -- Tabby
 vim.keymap.set("n", "<leader>rt", ":Tabby rename_tab ", { desc = "[R]ename [T]ab"})
-vim.keymap.set("n", "<leader>jt", ":Tabby jump_to_tab<CR>", { desc = "[J]ump to [T]ab" })
+vim.keymap.set("n", "<leader>jj", ":Tabby jump_to_tab<CR>", { desc = "[J]ump to tab" })
 
 -- Vim Doge
 vim.keymap.set("n", "<leader>dg", ":Neogen<CR>", { desc = "[D]ocumentation [G]enerate" })
