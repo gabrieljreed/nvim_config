@@ -50,3 +50,5 @@ vim.opt.termguicolors = true
 
 -- Save session options
 vim.opt.sessionoptions = "curdir,globals,help,tabpages,winsize"
+
+vim.opt.conceallevel = 0

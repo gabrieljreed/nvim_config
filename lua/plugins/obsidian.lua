@@ -1,6 +1,6 @@
 return {
   "epwalsh/obsidian.nvim",
-  version = "*",
+  version = "*",  -- Use latest release instead of latest commit
   lazy = true,
   ft = "markdown",
   dependencies = {
@@ -11,7 +11,7 @@ return {
       {
         name = "obsidian-vault",
         path = "~/Documents/obsidian-vault",
-      }
-    }
-  }
+      },
+    },
+  },
 }
