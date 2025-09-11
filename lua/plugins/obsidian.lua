@@ -4,7 +4,7 @@ local in_obsidian = string.find(cwd, "obsidian")
 
 return {
   "epwalsh/obsidian.nvim",
-  version = "*",
+  version = "*",  -- Use latest release instead of latest commit
   cond = in_obsidian,
   lazy = true,
   ft = "markdown",
@@ -16,7 +16,7 @@ return {
       {
         name = "obsidian-vault",
         path = "~/Documents/obsidian-vault",
-      }
-    }
-  }
+      },
+    },
+  },
 }
