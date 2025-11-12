@@ -4,7 +4,7 @@ return {
   config = function ()
     require("lualine").setup({
       options = {
-        theme = "catppuccin",
+        theme = "tokyonight",
       },
       sections = {
         lualine_c = {{ "filename", path = 1 }}
