@@ -17,7 +17,15 @@ vim.keymap.set("n", "<leader>yy", '"+yy', { desc = "Yank line to system clipboar
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>p", '"0p', { desc = "Paste from yank register" })
 vim.keymap.set("n", "<leader>P", '"+P', { desc = "Paste from system clipboard" })
-vim.keymap.set("n", "<leader>cf", ":let @+=expand('%:p')<CR>", { desc = "[C]opy current [F]ile path" })
+vim.keymap.set("n", "<leader>cf", function ()
+  local filepath = vim.fn.expand("%:p")
+  if filepath == "" then
+    vim.notify("No file path to copy (unnamed buffer)", vim.log.levels.WARN)
+    return
+  end
+  vim.fn.setreg("+", filepath)
+  vim.notify("Copied path to clipboard: " .. filepath)
+end, { desc = "[C]opy current [F]ile path"})
 
 -- Swap ; and :
 vim.keymap.set("n", ";", ":")
