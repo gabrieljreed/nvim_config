@@ -18,6 +18,7 @@ return {
   },
   config = function()
     local cmp = require('cmp')
+    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
     local luasnip = require('luasnip')
     require('luasnip.loaders.from_vscode').lazy_load()
     require("luasnip.loaders.from_snipmate").lazy_load {paths = vim.fn.stdpath "config" .. "/snippets"}
@@ -45,7 +46,7 @@ return {
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             if luasnip.expandable() then
-              luasnip.expand()
+              luasnip.expand({})
             else
               cmp.confirm({
                 behavior = cmp.ConfirmBehavior.Insert,
@@ -93,5 +94,7 @@ return {
         documentation = cmp.config.window.bordered(),
       },
     })
+
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
   end,
  }
