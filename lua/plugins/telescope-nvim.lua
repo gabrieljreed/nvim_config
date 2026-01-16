@@ -24,6 +24,7 @@ return {
         },
       },
       defaults = {
+        path_display = { "filename_first" },
         mappings = {
           i = {
             ["<C-j>"] = require("telescope.actions").move_selection_next,
@@ -51,7 +52,7 @@ return {
     pcall(require("telescope").load_extension, "ui-select")
 
     local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "[F]ind [F]iles (git)" })
+    -- vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "[F]ind [F]iles (git)" })
     vim.keymap.set("n", "<leader>FF", builtin.find_files, { desc = "[F]ind [F]iles (all)" })
     vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "[L]ive [G]rep" })
     vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "[F]ind [R]ecent files ('.' for repeat)" })

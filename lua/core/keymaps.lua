@@ -122,3 +122,9 @@ vim.keymap.set("n", "<leader>jj", ":Tabby jump_to_tab<CR>", { desc = "[J]ump to 
 
 -- Neogen
 vim.keymap.set("n", "<leader>dg", ":Neogen<CR>", { desc = "[D]ocumentation [G]enerate" })
+
+-- Smart open
+-- vim.keymap.set("n", "<leader>ff", ":Telescope smart_open<CR>", { desc = "[F]ind [F]iles" })
+vim.keymap.set("n", "<leader>ff", function ()
+  require("telescope").extensions.smart_open.smart_open({cwd_only = true, filename_first = true})
+end, { noremap = true, silent = true })
