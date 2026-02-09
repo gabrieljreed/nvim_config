@@ -5,6 +5,9 @@ return {
     require("lualine").setup({
       options = {
         theme = "tokyonight",
+        disabled_filetypes = {
+          statusline = { "NvimTree" },
+        },
       },
       sections = {
         lualine_c = {{ "filename", path = 1 }}
