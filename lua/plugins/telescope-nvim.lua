@@ -25,6 +25,7 @@ return {
       },
       defaults = {
         path_display = { "filename_first" },
+        show_line = true,
         mappings = {
           i = {
             ["<C-j>"] = require("telescope.actions").move_selection_next,
@@ -50,6 +51,14 @@ return {
 
     pcall(require("telescope").load_extension, "fzf")
     pcall(require("telescope").load_extension, "ui-select")
+
+    -- Enable line numbers in telescope preview pane
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "TelescopePreviewerLoaded",
+      callback = function()
+        vim.wo.number = true
+      end,
+    })
 
     local builtin = require("telescope.builtin")
     -- vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "[F]ind [F]iles (git)" })
