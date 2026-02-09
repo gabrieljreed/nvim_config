@@ -81,6 +81,17 @@ return {
       })
     end, { desc = '[F]ind in [B]uffer' })
 
+    -- Search current buffer with regex using live_grep
+    vim.keymap.set('n', '<leader>f/', function()
+      builtin.live_grep(require('telescope.themes').get_dropdown {
+        search_dirs = { vim.fn.expand('%:p') },
+        prompt_title = 'Live Grep (Current Buffer)',
+        path_display = { "hidden" },
+        winblend = 10,
+        previewer = true,
+      })
+    end, { desc = '[F]ind with regex [/] in buffer' })
+
     vim.keymap.set('n', '<leader>ds', function()
       builtin.lsp_document_symbols(require('telescope.themes').get_dropdown {
         winblend = 10,
