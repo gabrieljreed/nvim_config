@@ -57,6 +57,14 @@ return {
             fallback()
           end
         end),
+        -- Make the escape key close the completion menu instead of exiting insert mode
+        ['<Esc>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.close()
+          else
+            fallback()
+          end
+        end),
         -- ['<Tab>'] = cmp.mapping.confirm {
         --   behavior = cmp.ConfirmBehavior.Insert,
         --   select = true,
