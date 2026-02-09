@@ -8,7 +8,10 @@ return {
       },
       sections = {
         lualine_c = {{ "filename", path = 1 }}
-      }
+      },
+      inactive_sections = {  -- What to show in inactive panes/statuslines
+        lualine_c = {{ "filename", path = 1 }}
+      },
     })
   end
 }
