@@ -15,6 +15,7 @@ return {
       filters = {
         custom = {
           "^.git$",
+          "*.pyc$",
         }
       },
 
