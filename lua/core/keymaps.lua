@@ -31,6 +31,9 @@ end, { desc = "[C]opy current [F]ile path"})
 vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", ":", ";")
 
+-- Make Ctrl+C behave like Escape in insert mode (triggers InsertLeave for LuaSnip mirrors)
+vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode (same as Escape)" })
+
 -- Misc
 vim.keymap.set("n", "<leader>o", "o<Esc>", { desc = "Open new line below" })
 vim.keymap.set("n", "<leader>O", "O<Esc>", { desc = "Open new line above" })
