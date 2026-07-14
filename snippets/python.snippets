@@ -1,8 +1,8 @@
 snippet printvar Print Variable
   print(f"{${1:var} = }")
 snippet printlist Print List
-  print(f"({len(${1:list}):04d}) ${1:list}")
-  for obj in ${1:list}:
+  print(f"({len(${1:list}):04d}) $1")
+  for obj in $1:
       print(obj)
   print("---")
 snippet tryfinally Try Finally
