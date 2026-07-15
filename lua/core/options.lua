@@ -28,20 +28,6 @@ vim.cmd.colorscheme "tokyonight-night"
 
 opt.foldcolumn="2"
 
--- NERDTree show and use relative line numbers
-vim.g.NERDTreeShowLineNumbers = 1
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "nerdtree",
-    callback = function()
-        vim.opt_local.relativenumber = true
-    end,
-})
-vim.g.NERDTreeIgnore = {
-  "\\.pyc$",
-  "__pycache__",
-  ".git",
-}
-
 vim.g.have_nerd_font = true
 vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
 
