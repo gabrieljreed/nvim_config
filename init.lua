@@ -2,9 +2,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local config_path = vim.fn.stdpath("config")
-vim.cmd("source " .. config_path .. "/settings.vim")
-
 -- Bootstrap lazy
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazy_path) then
