@@ -71,24 +71,6 @@ vim.keymap.set("n", "<leader>gbt", ":Gitsigns toggle_current_line_blame<CR>", { 
 vim.keymap.set("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {})
 vim.keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
 
--- Toggle term
-vim.keymap.set("n", "<C-\\>", ":ToggleTerm<CR>")
-function _G.set_terminal_keymaps()
-  local opts = { buffer = 0 }
-  vim.keymap.set("t", "<C-q>", [[<C-\><C-n>]], opts) -- Exit terminal mode
-  vim.keymap.set("t", "<C-\\>", [[<C-\><C-n>:ToggleTerm<CR>]], opts)  -- Close terminal
-  vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>p]], opts)  -- Move to previous window/pane
-end
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-
--- Lazygit toggle
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
-function _lazygit_toggle()
-  lazygit:toggle()
-end
-vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true, desc="Toggle Lazygit" })
-
 -- Clear Shada cache
 vim.api.nvim_create_user_command("ClearShada", function ()
     local shada_path = vim.fn.expand(vim.fn.stdpath("data") .. "/shada")
