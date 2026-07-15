@@ -8,9 +8,20 @@ return {
         require("telescope").extensions.smart_open.smart_open({
           cwd_only = true,
           filename_first = true,
+          previewer = false,
         })
       end,
       desc = "[F]ind [F]iles",
+    },
+    {
+      "<leader>fp",
+      function()
+        require("telescope").extensions.smart_open.smart_open({
+          cwd_only = true,
+          filename_first = true,
+        })
+      end,
+      desc = "[F]ind files with [P]review",
     },
   },
   config = function()
