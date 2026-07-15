@@ -1,7 +1,31 @@
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
-  lazy = false,  -- Lazy loading isn't recommended by the docs - https://github.com/nvim-tree/nvim-tree.lua/wiki/Installation
+  cmd = {
+    "NvimTreeClose",
+    "NvimTreeFindFile",
+    "NvimTreeFocus",
+    "NvimTreeOpen",
+    "NvimTreeToggle",
+  },
+  keys = {
+    { "<leader>ee", "<cmd>NvimTreeFocus<CR>", desc = "Open/Focus NvimTree" },
+    { "<leader>rf", "<cmd>NvimTreeFindFile<CR>", desc = "[R]eveal [F]ile in NvimTree" },
+    { "<leader>eq", "<cmd>NvimTreeClose<CR>", desc = "Close NvimTree" },
+  },
+  init = function()
+    vim.api.nvim_create_autocmd("VimEnter", {
+      callback = function(data)
+        if vim.fn.isdirectory(data.file) ~= 1 then
+          return
+        end
+
+        require("lazy").load({ plugins = { "nvim-tree/nvim-tree.lua" } })
+        vim.cmd.cd(data.file)
+        require("nvim-tree.api").tree.open()
+      end,
+    })
+  end,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "b0o/nvim-tree-preview.lua",

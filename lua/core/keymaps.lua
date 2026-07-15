@@ -55,11 +55,6 @@ vim.keymap.set("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", { desc = "[Git]it [
 vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>", { desc = "Qui[C]kfix [N]ext" })
 vim.keymap.set("n", "<leader>cb", "<cmd>cnext<CR>", { desc = "Qui[C]kfix [B]ack" })
 
--- Nvim Tree
-vim.keymap.set("n", "<leader>ee", ":NvimTreeFocus<CR>", { desc = "Open/Focus NvimTree" })
-vim.keymap.set("n", "<leader>rf", ":NvimTreeFindFile<CR>", { desc = "[R]eveal [F]ile in NERD Tree" })
-vim.keymap.set("n", "<leader>eq", ":NvimTreeClose<CR>", { desc = "Close NvimTree" })
-
 -- Git Blame
 local os_name = vim.loop.os_uname().sysname
 if os_name ~= "Windows_NT" then
