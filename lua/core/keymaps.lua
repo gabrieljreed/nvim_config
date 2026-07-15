@@ -6,7 +6,6 @@ vim.keymap.set({"n", "v"}, "gh", "^", { desc = "Move to start of line with text"
 vim.keymap.set({"n", "v"}, "gH", "0", { desc = "Move to true start of line" })
 
 -- Tabs
-vim.keymap.set("n", "<leader>tt", ":tabnew<CR>:Tabby rename_tab new_tab<CR>", { desc = "New tab" })
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
 vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { desc = "Close other tabs ([t]ab[o]nly)" })
 
@@ -97,8 +96,3 @@ vim.keymap.set("n", "<leader>gcd", ":Copilot disable<CR>", { desc = "[G]itHub [C
 vim.keymap.set("n", "<leader>gce", ":Copilot enable<CR>", { desc = "[G]itHub [C]opilot [E]nable" })
 
 -- Tabby
-vim.keymap.set("n", "<leader>rt", ":Tabby rename_tab ", { desc = "[R]ename [T]ab"})
-vim.keymap.set("n", "<leader>jj", ":Tabby jump_to_tab<CR>", { desc = "[J]ump to tab" })
-
--- Neogen
-vim.keymap.set("n", "<leader>dg", ":Neogen<CR>", { desc = "[D]ocumentation [G]enerate" })

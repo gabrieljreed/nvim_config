@@ -1,5 +1,18 @@
 return {
   "nanozuki/tabby.nvim",
+  cmd = "Tabby",
+  keys = {
+    {
+      "<leader>tt",
+      function()
+        vim.cmd.tabnew()
+        vim.cmd("Tabby rename_tab new_tab")
+      end,
+      desc = "New tab",
+    },
+    { "<leader>rt", ":Tabby rename_tab ", desc = "[R]ename [T]ab" },
+    { "<leader>jj", "<cmd>Tabby jump_to_tab<CR>", desc = "[J]ump to tab" },
+  },
   dependencies = "nvim-tree/nvim-web-devicons",
 
   config = function ()
@@ -26,5 +39,5 @@ return {
         }
       }
     })
-  end
+  end,
 }
