@@ -13,7 +13,6 @@ set wildmenu " Show a more advance menu
 set autoread " Automatically reloads the file if it was changed
 filetype plugin indent on   " Allow auto-indenting depending on file type
 syntax on
-set spell " enable spell check (may need to download language package)
 set ttyfast " Speed up scrolling in Vim
 let g:netrw_liststyle = 3 " Set netrw to use tree style
 let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'

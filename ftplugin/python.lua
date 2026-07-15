@@ -1,4 +1,6 @@
 -- Python specific settings
+require("core.spell").enable_local_spell()
+
 vim.opt.cc = "120"
 
 vim.opt.foldlevel = 20

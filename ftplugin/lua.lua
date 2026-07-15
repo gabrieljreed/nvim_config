@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+require("core.spell").enable_local_spell()
+
 opt.tabstop = 2
 opt.shiftwidth = 2
 vim.bo.softtabstop = 2
