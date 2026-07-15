@@ -1,7 +1,104 @@
 -- Fuzzy file finder
 return {
   "nvim-telescope/telescope.nvim",
-  event = "vimEnter",
+  cmd = "Telescope",
+  keys = {
+    {
+      "<leader>FF",
+      function()
+        require("telescope.builtin").find_files()
+      end,
+      desc = "[F]ind [F]iles (all)",
+    },
+    {
+      "<leader>lg",
+      function()
+        require("telescope.builtin").live_grep()
+      end,
+      desc = "[L]ive [G]rep",
+    },
+    {
+      "<leader>fr",
+      function()
+        require("telescope.builtin").oldfiles()
+      end,
+      desc = "[F]ind [R]ecent files ('.' for repeat)",
+    },
+    {
+      "<leader>ft",
+      function()
+        require("telescope.builtin").builtin()
+      end,
+      desc = "[F]ind [T]elescope",
+    },
+    {
+      "<leader>fk",
+      function()
+        require("telescope.builtin").keymaps()
+      end,
+      desc = "[F]ind [K]eymaps",
+    },
+    {
+      "<leader>fh",
+      function()
+        require("telescope.builtin").help_tags()
+      end,
+      desc = "[F]ind [H]elp",
+    },
+    {
+      "<leader>fo",
+      function()
+        require("telescope.builtin").buffers()
+      end,
+      desc = "[F]ind in [O]pen buffers",
+    },
+    {
+      "<leader>fb",
+      function()
+        require("telescope.builtin").current_buffer_fuzzy_find(
+          require("telescope.themes").get_dropdown({
+            winblend = 10,
+            previewer = true,
+          })
+        )
+      end,
+      desc = "[F]ind in [B]uffer",
+    },
+    {
+      "<leader>f/",
+      function()
+        require("telescope.builtin").live_grep(
+          require("telescope.themes").get_dropdown({
+            search_dirs = { vim.fn.expand("%:p") },
+            prompt_title = "Live Grep (Current Buffer)",
+            path_display = { "hidden" },
+            winblend = 10,
+            previewer = true,
+          })
+        )
+      end,
+      desc = "[F]ind with regex [/] in buffer",
+    },
+    {
+      "<leader>ds",
+      function()
+        require("telescope.builtin").lsp_document_symbols(
+          require("telescope.themes").get_dropdown({
+            winblend = 10,
+            previewer = true,
+          })
+        )
+      end,
+      desc = "[D]ocument [S]ymbols",
+    },
+    {
+      "<leader>fc",
+      function()
+        require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
+      end,
+      desc = "[F]ind in [C]onfig files",
+    },
+  },
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     {
@@ -9,14 +106,16 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
       cond = function()
-        return vim.fn.executable "make" == 1
+        return vim.fn.executable("make") == 1
       end,
     },
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
   },
-  config = function ()
-    require("telescope").setup {
+  config = function()
+    local telescope = require("telescope")
+
+    telescope.setup({
       extensions = {
         fzf = {},
         ["ui-select"] = {
@@ -43,16 +142,15 @@ return {
           mappings = {
             i = {
               ["<c-d>"] = "delete_buffer",
-            }
-          }
-        }
-      }
-    }
+            },
+          },
+        },
+      },
+    })
 
-    pcall(require("telescope").load_extension, "fzf")
-    pcall(require("telescope").load_extension, "ui-select")
+    pcall(telescope.load_extension, "fzf")
+    pcall(telescope.load_extension, "ui-select")
 
-    -- Enable line numbers in telescope preview pane
     vim.api.nvim_create_autocmd("User", {
       pattern = "TelescopePreviewerLoaded",
       callback = function()
@@ -60,49 +158,6 @@ return {
       end,
     })
 
-    local builtin = require("telescope.builtin")
-    -- vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "[F]ind [F]iles (git)" })
-    vim.keymap.set("n", "<leader>FF", builtin.find_files, { desc = "[F]ind [F]iles (all)" })
-    vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "[L]ive [G]rep" })
-    vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "[F]ind [R]ecent files ('.' for repeat)" })
-    vim.keymap.set("n", "<leader>ft", builtin.builtin, { desc = "[F]ind [T]elescope" })
-    vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
-    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
-    vim.keymap.set("n", "<leader>fo", builtin.buffers, { desc = "[F]ind in [O]pen buffers" })
-
     require("config.telescope.multigrep").setup()
-
-    -- Slightly advanced example of overriding default behavior and theme
-    vim.keymap.set('n', '<leader>fb', function()
-      -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = true,
-      })
-    end, { desc = '[F]ind in [B]uffer' })
-
-    -- Search current buffer with regex using live_grep
-    vim.keymap.set('n', '<leader>f/', function()
-      builtin.live_grep(require('telescope.themes').get_dropdown {
-        search_dirs = { vim.fn.expand('%:p') },
-        prompt_title = 'Live Grep (Current Buffer)',
-        path_display = { "hidden" },
-        winblend = 10,
-        previewer = true,
-      })
-    end, { desc = '[F]ind with regex [/] in buffer' })
-
-    vim.keymap.set('n', '<leader>ds', function()
-      builtin.lsp_document_symbols(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = true,
-      })
-    end, { desc = '[D]ocument [S]ymbols' })
-
-  -- Shortcut for searching your Neovim configuration files
-    vim.keymap.set('n', '<leader>fc', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[F]ind in [C]onfig files' })
-
-  end
+  end,
 }

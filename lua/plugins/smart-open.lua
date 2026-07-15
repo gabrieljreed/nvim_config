@@ -1,6 +1,18 @@
 return {
   "danielfalk/smart-open.nvim",
   branch = "0.2.x",
+  keys = {
+    {
+      "<leader>ff",
+      function()
+        require("telescope").extensions.smart_open.smart_open({
+          cwd_only = true,
+          filename_first = true,
+        })
+      end,
+      desc = "[F]ind [F]iles",
+    },
+  },
   config = function()
     require("telescope").load_extension("smart_open")
   end,
