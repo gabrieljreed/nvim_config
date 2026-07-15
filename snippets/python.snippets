@@ -5,6 +5,11 @@ snippet printlist Print List
   for obj in $1:
       print(obj)
   print("---")
+snippet printdict Print Dict
+  print(f"({len(${1:dict}.values()):04d}) ${1}")
+  for key, value in ${1}.items():
+      print(f"{key}: {value}")
+  print("---")
 snippet tryfinally Try Finally
   try:
       ${1:...}
