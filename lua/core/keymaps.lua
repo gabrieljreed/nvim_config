@@ -32,6 +32,7 @@ vim.keymap.set("n", ":", ";")
 
 -- Make Ctrl+C behave like Escape in insert mode (triggers InsertLeave for LuaSnip mirrors)
 vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Exit insert mode (same as Escape)" })
+vim.keymap.set("v", "<C-c>", "<Esc>", { desc = "Exit visual mode (same as Escape)" })
 
 -- Misc
 vim.keymap.set("n", "<leader>o", "o<Esc>", { desc = "Open new line below" })
