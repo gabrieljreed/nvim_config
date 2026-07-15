@@ -41,10 +41,6 @@ vim.opt.scrolloff = 10
 -- Disable swapfiles
 vim.opt.swapfile = false
 
--- Disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 -- Enable 24-bit color
 vim.opt.termguicolors = true
 

@@ -1,3 +1,7 @@
+-- Disable netrw before runtime plugins load so nvim-tree can replace it.
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local config_path = vim.fn.stdpath("config")
 vim.cmd("source " .. config_path .. "/settings.vim")
 
