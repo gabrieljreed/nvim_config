@@ -25,6 +25,24 @@ vim.keymap.set("n", "<leader>cf", function ()
   vim.fn.setreg("+", filepath)
   vim.notify("Copied path to clipboard: " .. filepath)
 end, { desc = "[C]opy current [F]ile path"})
+vim.keymap.set("n", "<leader>cr", function ()
+  local filepath = vim.fn.expand("%:p")
+  if filepath == "" then
+    vim.notify("No file path to copy (unnamed buffer)", vim.log.levels.WARN)
+    return
+  end
+
+  local root = vim.fs.root(filepath, { ".git" }) or vim.fn.getcwd()
+  local relative = vim.fs.relpath(root, filepath)
+
+  if not relative then
+    vim.notify("Could not compute relative path, copied absolute path instead", vim.log.levels.WARN)
+    relative = filepath
+  end
+
+  vim.fn.setreg("+", relative)
+  vim.notify("Copied relative path to clipboard: " .. relative)
+end, { desc = "[C]opy current file path [R]elative to project root"})
 
 -- Swap ; and :
 vim.keymap.set("n", ";", ":")
