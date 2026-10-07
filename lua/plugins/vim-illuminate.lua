@@ -1,7 +1,7 @@
 -- Highlight words under cursor
 return {
   "RRethy/vim-illuminate",
-  event = { "BufReadPost", "BufNewFile" },
+  event = "User DeferredUI",
   cmd = {
     "IlluminatePause",
     "IlluminateResume",

@@ -72,3 +72,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
   end,
 })
+vim.api.nvim_create_autocmd("UIEnter", {
+  group = vim.api.nvim_create_augroup("deferred_ui_plugins", { clear = true }),
+  once = true,
+  callback = function()
+    vim.defer_fn(function()
+      -- print("[nvim] Firing User DeferredUI")
+      vim.api.nvim_exec_autocmds("User", { pattern = "DeferredUI", modeline = false })
+    end, 1000)
+  end,
+})
